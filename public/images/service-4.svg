@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFF9E6"/><stop offset="100%" stop-color="#F5EDD0"/></linearGradient>
+  </defs>
+  <rect width="400" height="280" rx="16" fill="url(#bg4)"/>
+  <g transform="translate(155, 70)" opacity="0.5">
+    <path d="M45 10C42 4 36 0 28 0C20 0 15 3 12 6C9 3 4 0 -2 0C-8 0 -14 4 -15 10C-15 15 -12 20 -8 25C-4 30 4 38 12 45C20 38 28 30 32 25C36 20 45 15 45 10Z" fill="#F5C542" transform="translate(15, 0) scale(0.8)"/>
+    <!-- Sparkle -->
+    <path d="M50 20L53 28L61 31L53 34L50 42L47 34L39 31L47 28Z" fill="#35B6C8" opacity="0.6"/>
+    <path d="M70 5L72 10L77 12L72 14L70 19L68 14L63 12L68 10Z" fill="#35B6C8" opacity="0.4" transform="scale(0.7)"/>
+  </g>
+  <text x="200" y="230" text-anchor="middle" font-family="system-ui" font-size="13" fill="#1B6878" opacity="0.7">Clareamento Dental</text>
+</svg>

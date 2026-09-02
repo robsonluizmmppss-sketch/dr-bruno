@@ -1,0 +1,223 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String
+  role          String    @default("admin")
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model SiteSettings {
+  id                  String   @id @default(cuid())
+  siteName            String   @default("Dr. Bruno Aparecido")
+  siteSubtitle        String   @default("Cirurgião-Dentista")
+  logo                String?
+  favicon             String?
+  email               String   @default("")
+  phone               String   @default("")
+  address             String   @default("")
+  city                String   @default("")
+  state               String   @default("")
+  zipCode             String   @default("")
+  cro                 String   @default("")
+  workingHours        String   @default("")
+  googleMapsUrl       String?
+  googleMapsEmbed     String?
+  copyrightText       String   @default("© 2024 Dr. Bruno Aparecido. Todos os direitos reservados.")
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model HeroSettings {
+  id              String   @id @default(cuid())
+  badge           String   @default("ODONTOLOGIA COM EXCELÊNCIA")
+  title           String   @default("Seu sorriso merece cuidado, precisão e confiança.")
+  subtitle        String   @default("Atendimento odontológico personalizado, aliado à experiência, tecnologia e cuidado em cada etapa do seu tratamento.")
+  buttonPrimary   String   @default("Agendar consulta")
+  buttonSecondary String   @default("Conheça o Dr. Bruno")
+  image           String?
+  card1Title      String   @default("Atendimento personalizado")
+  card2Title      String   @default("Experiência e precisão")
+  card3Title      String   @default("Tecnologia em cada detalhe")
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model AboutSettings {
+  id                String   @id @default(cuid())
+  name              String   @default("Dr. Bruno Aparecido")
+  role              String   @default("Cirurgião-Dentista")
+  cro               String   @default("[CRO DO PROFISSIONAL]")
+  biography         String   @default("")
+  photo             String?
+  education         String   @default("")
+  specializations   String   @default("")
+  experience        String   @default("")
+  stat1Number       String   @default("[X]+")
+  stat1Label        String   @default("Pacientes atendidos")
+  stat2Number       String   @default("[X] anos")
+  stat2Label        String   @default("de experiência")
+  stat3Number       String   @default("[X]+")
+  stat3Label        String   @default("Procedimentos realizados")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Service {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique
+  shortDescription String
+  fullDescription  String
+  image            String?
+  icon             String   @default("Stethoscope")
+  order            Int      @default(0)
+  isActive         Boolean  @default(true)
+  seoTitle         String?
+  seoDescription   String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  photo     String?
+  text      String
+  rating    Int      @default(5)
+  date      DateTime @default(now())
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String   @default("")
+  caption   String   @default("")
+  category  String   @default("Consultório")
+  order     Int      @default(0)
+  isFeatured Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BlogPost {
+  id             String    @id @default(cuid())
+  title          String
+  slug           String    @unique
+  excerpt        String    @default("")
+  content        String
+  coverImage     String?
+  author         String    @default("Dr. Bruno Aparecido")
+  category       String    @default("Saúde Bucal")
+  tags           String    @default("")
+  status         String    @default("draft")
+  publishedAt    DateTime?
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Differential {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  icon        String   @default("Shield")
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SocialLink {
+  id        String   @id @default(cuid())
+  platform  String   @unique
+  url       String   @default("")
+  isActive  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContactSettings {
+  id              String   @id @default(cuid())
+  title           String   @default("Entre em contato")
+  subtitle        String   @default("Estamos prontos para atendê-lo")
+  showMap         Boolean  @default(true)
+  showForm        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model WhatsappSettings {
+  id                    String   @id @default(cuid())
+  phoneNumber           String   @default("")
+  defaultMessage        String   @default("Olá, Dr. Bruno! Gostaria de agendar uma consulta.")
+  appointmentMessage    String   @default("Olá! Gostaria de agendar uma consulta com o Dr. Bruno Aparecido.")
+  serviceMessage        String   @default("Olá! Gostaria de saber mais sobre o serviço: ")
+  contactMessage        String   @default("Olá! Gostaria de mais informações.")
+  buttonText            String   @default("Falar pelo WhatsApp")
+  showFloatingButton    Boolean  @default(true)
+  showBottomBar         Boolean  @default(true)
+  floatingPosition      String   @default("bottom-right")
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model SeoSettings {
+  id              String   @id @default(cuid())
+  metaTitle       String   @default("Dr. Bruno Aparecido | Cirurgião-Dentista")
+  metaDescription String   @default("Consultório odontológico do Dr. Bruno Aparecido. Atendimento personalizado com tecnologia e cuidado.")
+  keywords        String   @default("dentista, cirurgião-dentista, odontologia, consultório odontológico")
+  ogTitle         String   @default("Dr. Bruno Aparecido | Cirurgião-Dentista")
+  ogDescription   String   @default("Consultório odontológico do Dr. Bruno Aparecido.")
+  ogImage         String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model CtaSettings {
+  id              String   @id @default(cuid())
+  title           String   @default("Pronto para cuidar melhor do seu sorriso?")
+  subtitle        String   @default("Entre em contato e agende uma avaliação.")
+  buttonPrimary   String   @default("Falar pelo WhatsApp")
+  buttonSecondary String   @default("Entrar em contato")
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ClinicSection {
+  id          String   @id @default(cuid())
+  title       String   @default("Tecnologia e cuidado em cada detalhe.")
+  description String   @default("Nosso consultório conta com equipamentos de última geração para oferecer o melhor em diagnóstico e tratamento odontológico.")
+  image       String?
+  buttonText  String   @default("Conheça nosso atendimento")
+  buttonLink  String   @default("/sobre")
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Analytics {
+  id        String   @id @default(cuid())
+  event     String
+  page      String   @default("")
+  metadata  String   @default("")
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8F4F8"/><stop offset="100%" stop-color="#D1EBF1"/></linearGradient>
+  </defs>
+  <rect width="400" height="280" rx="16" fill="url(#bg1)"/>
+  <g transform="translate(160, 80)" opacity="0.4">
+    <path d="M40 8C36 3 30 0 24 0C18 0 13 2 10 5C7 8 4 13 4 18C4 23 5.5 27 6.5 31C7.5 35 8.5 40 9.5 45C10.5 50 12 58 14 63C15.5 67 17 70 19 70C21 70 22 67 23 63C23.5 60 24 57 25 57C26 57 26.5 60 27 63C28 67 29 70 31 70C33 70 34.5 67 36 63C38 58 39.5 50 40.5 45C41.5 40 42.5 35 43.5 31C44.5 27 46 23 46 18C46 13 44 8 40 8Z" fill="#35B6C8"/>
+    <path d="M18 22C18 22 22 27 25 27C28 27 32 22 32 22" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <text x="200" y="230" text-anchor="middle" font-family="system-ui" font-size="13" fill="#1B6878" opacity="0.7">Clínica Geral</text>
+</svg>

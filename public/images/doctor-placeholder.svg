@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#123B48"/>
+      <stop offset="100%" stop-color="#0B2029"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#35B6C8"/>
+      <stop offset="100%" stop-color="#6DD6E5"/>
+    </linearGradient>
+    <clipPath id="rounded">
+      <rect width="500" height="600" rx="24"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#rounded)">
+    <rect width="500" height="600" fill="url(#bg)"/>
+    <!-- Silhouette -->
+    <ellipse cx="250" cy="220" rx="80" ry="85" fill="#1B6878" opacity="0.5"/>
+    <rect x="160" y="290" width="180" height="220" rx="10" fill="#1B6878" opacity="0.4"/>
+    <!-- Stethoscope hint -->
+    <path d="M220 310 Q250 350 280 310" stroke="#35B6C8" stroke-width="3" fill="none" opacity="0.6"/>
+    <circle cx="250" cy="360" r="8" fill="#35B6C8" opacity="0.4"/>
+    <!-- Cross medical -->
+    <rect x="230" y="140" width="40" height="12" rx="3" fill="url(#accent)" opacity="0.3"/>
+    <rect x="244" y="128" width="12" height="36" rx="3" fill="url(#accent)" opacity="0.3"/>
+    <!-- Label -->
+    <rect x="140" y="500" width="220" height="60" rx="12" fill="white" opacity="0.08"/>
+    <text x="250" y="528" text-anchor="middle" font-family="system-ui" font-size="14" fill="white" opacity="0.5">Foto do Profissional</text>
+    <text x="250" y="548" text-anchor="middle" font-family="system-ui" font-size="11" fill="#35B6C8" opacity="0.6">CRO [NÚMERO]</text>
+  </g>
+</svg>
