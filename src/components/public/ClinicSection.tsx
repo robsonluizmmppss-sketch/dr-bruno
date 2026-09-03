@@ -30,7 +30,7 @@ export default function ClinicSection({ clinic }: { clinic: ClinicSectionType })
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.1 }}
               className="max-w-lg"
             >
               <span className="text-[#5AABB8] text-xs font-semibold uppercase tracking-[0.15em]">

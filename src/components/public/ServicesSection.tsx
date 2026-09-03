@@ -12,7 +12,7 @@ export default function ServicesSection({ services }: { services: Service[] }) {
   if (services.length === 0) return null;
 
   return (
-    <section className="py-24 bg-white" id="servicos">
+    <section className="py-24 bg-white overflow-hidden" id="servicos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function ServicesSection({ services }: { services: Service[] }) {
           </div>
         </motion.div>
 
-        <div className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:overflow-visible snap-x snap-mandatory lg:snap-none scrollbar-hide">
+        <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:overflow-visible snap-x snap-mandatory lg:snap-none scrollbar-hide">
           {services.slice(0, 4).map((service, i) => {
             const imgSrc = service.image || defaultServiceImg;
             return (
@@ -52,9 +52,9 @@ export default function ServicesSection({ services }: { services: Service[] }) {
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ delay: i * 0.1 }}
-                className="min-w-[260px] sm:min-w-[280px] lg:min-w-0 snap-start"
+                className="min-w-[240px] sm:min-w-[280px] lg:min-w-0 snap-start"
               >
                 <Link
                   href={`/servicos/${service.slug}`}

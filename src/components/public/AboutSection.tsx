@@ -21,7 +21,7 @@ export default function AboutSection({ about }: { about: AboutSettings }) {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             className="order-2 lg:order-1"
           >
             <span className="text-[#1B7A8A] text-xs font-semibold uppercase tracking-[0.15em]">
@@ -43,10 +43,10 @@ export default function AboutSection({ about }: { about: AboutSettings }) {
             </div>
 
             {/* Stats row */}
-            <div className="flex items-center gap-6 mb-8 pb-8 border-b border-gray-200">
+            <div className="flex items-center gap-4 sm:gap-6 mb-8 pb-8 border-b border-gray-200">
               {stats.map((stat, i) => (
-                <div key={i} className={`${i > 0 ? "border-l border-gray-200 pl-6" : ""}`}>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#123B48]">{stat.number}</p>
+                <div key={i} className={`${i > 0 ? "border-l border-gray-200 pl-4 sm:pl-6" : ""}`}>
+                  <p className="text-xl sm:text-3xl font-bold text-[#123B48]">{stat.number}</p>
                   <p className="text-xs text-[#0B2029]/45 mt-0.5">{stat.label}</p>
                 </div>
               ))}
@@ -65,7 +65,7 @@ export default function AboutSection({ about }: { about: AboutSettings }) {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             className="relative order-1 lg:order-2"
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl shadow-black/10">

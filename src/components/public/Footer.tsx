@@ -43,7 +43,7 @@ export default function Footer({ settings, socials, whatsappUrl }: FooterProps) 
   return (
     <footer className="bg-[#07141C]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
           {/* Logo & Social */}
           <div>
             <img

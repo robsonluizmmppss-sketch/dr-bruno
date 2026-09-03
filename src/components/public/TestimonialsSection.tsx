@@ -14,7 +14,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           className="mb-12"
         >
           <span className="text-[#1B7A8A] text-xs font-semibold uppercase tracking-[0.15em]">
@@ -31,7 +31,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
               key={testimonial.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ delay: i * 0.1 }}
               className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col h-full"
             >

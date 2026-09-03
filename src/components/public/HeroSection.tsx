@@ -94,7 +94,7 @@ export default function HeroSection({ hero, whatsappUrl }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-[320px] h-[400px] sm:w-[360px] sm:h-[450px] lg:w-[420px] lg:h-[520px]">
+            <div className="relative w-[280px] h-[360px] sm:w-[360px] sm:h-[450px] lg:w-[420px] lg:h-[520px]">
               <div className="absolute inset-0 rounded-2xl overflow-hidden">
                 {hero.image ? (
                   <Image
@@ -102,7 +102,7 @@ export default function HeroSection({ hero, whatsappUrl }: HeroProps) {
                     alt="Dr. Bruno Aparecido"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 320px, 420px"
+                    sizes="(max-width: 768px) 280px, 420px"
                     priority
                   />
                 ) : (
@@ -112,7 +112,7 @@ export default function HeroSection({ hero, whatsappUrl }: HeroProps) {
               </div>
 
               {/* Doctor info card */}
-              <div className="absolute -right-6 top-8 sm:top-12 bg-white rounded-xl p-4 shadow-lg w-[220px]">
+              <div className="absolute right-2 sm:-right-6 top-8 sm:top-12 bg-white rounded-xl p-3 sm:p-4 shadow-lg w-[180px] sm:w-[220px]">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-lg bg-[#0F2830] flex items-center justify-center flex-shrink-0">
                     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
@@ -138,7 +138,7 @@ export default function HeroSection({ hero, whatsappUrl }: HeroProps) {
               </div>
 
               {/* Experience card */}
-              <div className="absolute -left-6 bottom-20 sm:bottom-24 bg-white rounded-xl p-4 shadow-lg w-[170px]">
+              <div className="absolute left-2 sm:-left-6 bottom-16 sm:bottom-24 bg-white rounded-xl p-3 sm:p-4 shadow-lg w-[150px] sm:w-[170px]">
                 <p className="text-[#0F2830]/40 text-xs mb-0.5">Há mais de</p>
                 <p className="text-[#0F2830] font-bold text-2xl leading-tight">14 anos</p>
                 <p className="text-[#0F2830]/40 text-xs">cuidando do seu sorriso</p>

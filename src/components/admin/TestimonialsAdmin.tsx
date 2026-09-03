@@ -61,8 +61,8 @@ export default function TestimonialsAdmin({ testimonials: initial }: { testimoni
           <h1 className="text-2xl font-bold text-[#07141C]">Depoimentos</h1>
           <p className="text-sm text-[#0B2029]/50 mt-1">Gerencie os depoimentos de pacientes</p>
         </div>
-        <button onClick={() => { setShowCreate(true); setForm({ name: "", text: "", rating: "5", photo: "" }); }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#35B6C8] hover:bg-[#1B6878] text-white text-sm font-medium rounded-xl transition-all">
-          <Plus className="w-4 h-4" /> Novo Depoimento
+        <button onClick={() => { setShowCreate(true); setForm({ name: "", text: "", rating: "5", photo: "" }); }} className="inline-flex items-center gap-2 px-3 py-2.5 sm:px-5 bg-[#35B6C8] hover:bg-[#1B6878] text-white text-sm font-medium rounded-xl transition-all">
+          <Plus className="w-4 h-4" /> <span className="hidden sm:inline">Novo Depoimento</span><span className="sm:hidden">Novo</span>
         </button>
       </div>
 

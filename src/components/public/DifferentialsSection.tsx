@@ -17,8 +17,8 @@ export default function DifferentialsSection({ differentials }: { differentials:
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          viewport={{ once: true, amount: 0.1 }}
+          className="text-center mb-12 sm:mb-16"
         >
           <span className="text-[#1B7A8A] text-sm font-medium uppercase tracking-wider">
             Diferenciais
@@ -39,8 +39,8 @@ export default function DifferentialsSection({ differentials }: { differentials:
                 key={diff.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ delay: i * 0.05 }}
                 className="group p-6 rounded-xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow duration-300"
               >
                 <div className="w-12 h-12 rounded-lg bg-[#1B7A8A]/10 flex items-center justify-center mb-4 group-hover:bg-[#1B7A8A] transition-colors duration-300">
