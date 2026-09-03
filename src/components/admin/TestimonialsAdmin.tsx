@@ -19,6 +19,7 @@ export default function TestimonialsAdmin({ testimonials: initial }: { testimoni
 
   function startEdit(t: Testimonial) {
     setEditingId(t.id);
+    setShowCreate(false);
     setForm({ name: t.name, text: t.text, rating: String(t.rating), photo: t.photo || "" });
   }
 
@@ -55,19 +56,23 @@ export default function TestimonialsAdmin({ testimonials: initial }: { testimoni
   }
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-8">
+    <div className="max-w-4xl">
+      <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-[#07141C]">Depoimentos</h1>
-          <p className="text-sm text-[#0B2029]/50 mt-1">Gerencie os depoimentos de pacientes</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-[#07141C]">Depoimentos</h1>
+          <p className="text-sm text-[#0B2029]/50 mt-0.5">Gerencie os depoimentos de pacientes</p>
         </div>
-        <button onClick={() => { setShowCreate(true); setForm({ name: "", text: "", rating: "5", photo: "" }); }} className="inline-flex items-center gap-2 px-3 py-2.5 sm:px-5 bg-[#35B6C8] hover:bg-[#1B6878] text-white text-sm font-medium rounded-xl transition-all">
-          <Plus className="w-4 h-4" /> <span className="hidden sm:inline">Novo Depoimento</span><span className="sm:hidden">Novo</span>
+        <button
+          onClick={() => { setShowCreate(true); setEditingId(null); setForm({ name: "", text: "", rating: "5", photo: "" }); }}
+          className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 bg-[#35B6C8] hover:bg-[#1B6878] text-white text-sm font-medium rounded-xl transition-all shadow-sm"
+        >
+          <Plus className="w-4 h-4" />
+          <span>Novo Depoimento</span>
         </button>
       </div>
 
       {(showCreate || editingId) && (
-        <div className="bg-white rounded-2xl p-6 border border-[#E7EEF1] mb-6">
+        <div className="bg-white rounded-2xl p-5 sm:p-6 border border-[#E7EEF1] mb-6">
           <h3 className="font-semibold text-[#07141C] mb-4">{editingId ? "Editar" : "Novo"} Depoimento</h3>
           <div className="space-y-4">
             <AdminFormField label="Nome" name="name" value={form.name} onChange={handleChange} />
@@ -91,20 +96,30 @@ export default function TestimonialsAdmin({ testimonials: initial }: { testimoni
         </div>
       )}
 
-      <div className="space-y-2">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((t) => (
-          <div key={t.id} className="bg-white rounded-xl p-4 border border-[#E7EEF1] flex items-center gap-4">
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className={`font-medium text-sm ${t.isActive ? "text-[#07141C]" : "text-[#0B2029]/40"}`}>{t.name}</h3>
-                <div className="flex gap-0.5">{Array.from({ length: t.rating }).map((_, i) => <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />)}</div>
+          <div key={t.id} className={`bg-white rounded-xl border border-[#E7EEF1] overflow-hidden transition-shadow hover:shadow-sm ${!t.isActive ? "opacity-60" : ""}`}>
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-medium text-sm text-[#07141C] truncate">{t.name}</h3>
+                <div className="flex gap-0.5 shrink-0 ml-2">
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
               </div>
-              <p className="text-xs text-[#0B2029]/40 truncate">{t.text}</p>
+              <p className="text-xs text-[#0B2029]/50 leading-relaxed line-clamp-3">{t.text}</p>
             </div>
-            <div className="flex items-center gap-2 shrink-0">
-              <button onClick={() => handleToggle(t)} className="p-2 rounded-lg hover:bg-[#F7FAFC]">{t.isActive ? <Eye className="w-4 h-4 text-[#35B6C8]" /> : <EyeOff className="w-4 h-4 text-[#0B2029]/30" />}</button>
-              <button onClick={() => startEdit(t)} className="p-2 rounded-lg hover:bg-[#F7FAFC]"><Edit2 className="w-4 h-4 text-[#0B2029]/40" /></button>
-              <button onClick={() => handleDelete(t.id)} className="p-2 rounded-lg hover:bg-red-50"><Trash2 className="w-4 h-4 text-red-400" /></button>
+            <div className="flex items-center justify-end gap-1 px-3 py-2 border-t border-[#E7EEF1] bg-[#F7FAFC]/50">
+              <button onClick={() => handleToggle(t)} className="p-1.5 rounded-lg hover:bg-white" title={t.isActive ? "Desativar" : "Ativar"}>
+                {t.isActive ? <Eye className="w-3.5 h-3.5 text-[#35B6C8]" /> : <EyeOff className="w-3.5 h-3.5 text-[#0B2029]/30" />}
+              </button>
+              <button onClick={() => startEdit(t)} className="p-1.5 rounded-lg hover:bg-white" title="Editar">
+                <Edit2 className="w-3.5 h-3.5 text-[#0B2029]/40" />
+              </button>
+              <button onClick={() => handleDelete(t.id)} className="p-1.5 rounded-lg hover:bg-red-50" title="Excluir">
+                <Trash2 className="w-3.5 h-3.5 text-red-400" />
+              </button>
             </div>
           </div>
         ))}
